@@ -7,14 +7,14 @@ class Scraper
     students = []
     html = open(index_url)
     index = Nokogiri::HTML(html)
-    x = 0
-    while x < student_details.length
     index.css("div.student-card").each do |student|
       student_details =[]
       student_details[:name] = student.css("h4.student-name").text
       student_details[:location] = student.css("p.student-location").text
       profile_path = student.css("a").attribute("href").value
       student_details[:profile_url] = './fixtures/student-site/' + profile_path
+          x = 0
+    while x < student_details.length
       students << student_details[x]
     end
     x += 1
