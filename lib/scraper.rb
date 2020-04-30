@@ -10,8 +10,6 @@ class Scraper
     doc = Nokogiri::HTML(html)
     scraped_students = []
     students = doc.css(".student-card")
-    x = 0
-  while x < students.length
     students.each do |student|
       name = student.css(".student-name").text
       location = student.css(".student-location").text
@@ -20,10 +18,8 @@ class Scraper
       :location => location,
       :profile_url => profile_url
     }
-    scraped_students << hash(x)
+    scraped_students << hash
     end
-  x+=1
-  end 
     scraped_students
 end
 
