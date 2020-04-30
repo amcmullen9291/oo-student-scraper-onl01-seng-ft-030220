@@ -6,11 +6,9 @@ class Scraper
 
   def self.scrape_index_page(index_url)
     index_url = 'fixtures/student-site/index.html'
-    html = open(index_url)
+    html = URI.open(index_url)
     doc = Nokogiri::HTML(html)
-    
     scraped_students = []
-    
     students = doc.css(".student-card")
     x = 0
   while x < students.length
