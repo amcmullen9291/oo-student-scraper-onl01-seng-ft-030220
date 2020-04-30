@@ -18,6 +18,7 @@ class Scraper
       students << student_details[x]
     end
     x += 1
+  end
     students
   end
 
