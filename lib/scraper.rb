@@ -11,6 +11,8 @@ class Scraper
     scraped_students = []
     
     students = doc.css(".student-card")
+    x = 0
+while x < students.length
     students.each do |student|
       name = student.css(".student-name").text
       location = student.css(".student-location").text
@@ -19,10 +21,12 @@ class Scraper
       :location => location,
       :profile_url => profile_url
     }
-    scraped_students << hash
-  end
+    scraped_students << hash(x)
+    end
+  x+=1
+  end 
     scraped_students
-  end
+end
 
   def self.scrape_profile_page(profile_url)
     html = open(profile_url)
