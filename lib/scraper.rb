@@ -12,7 +12,7 @@ class Scraper
     
     students = doc.css(".student-card")
     x = 0
-while x < students.length
+  while x < students.length
     students.each do |student|
       name = student.css(".student-name").text
       location = student.css(".student-location").text
