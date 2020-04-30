@@ -8,7 +8,7 @@ class Scraper
     html = open(index_url)
     index = Nokogiri::HTML(html)
     x = 0
-    while x <student_details.length
+    while x < student_details.length
     index.css("div.student-card").each do |student|
       student_details =[]
       student_details[:name] = student.css("h4.student-name").text
